@@ -21,7 +21,7 @@ async function callSteamApi(brother) {
 
   console.log("start calling API")
 
-const steamUrl = new URL('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/');
+const steamUrl = new URL('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/');
 const steamParams = {
     'key': steamApi,
     'steamids': brother,
