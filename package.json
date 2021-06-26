@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "stephbaltimore",
   "license": "ISC",
   "browserslist": [
     "since 2017-06"
@@ -12,8 +12,8 @@
   "dependencies": {
     "@mdi/font": "^5.9.55",
     "dotenv": "^10.0.0",
-    "regenerator-runtime": "^0.13.7",
-    "parcel": "^1.12.4"
+    "parcel": "^1.12.4",
+    "regenerator-runtime": "^0.13.7"
   },
   "engines": {
     "node": "v14.15.5",
@@ -22,5 +22,6 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
-  }
+  },
+  "repository": "https://github.com/stephbaltimore/Bro-Detect.git"
 }
