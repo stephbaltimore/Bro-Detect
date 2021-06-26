@@ -1,0 +1,19 @@
+{
+  "name": "brothers-detective",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "since 2017-06"
+  ],
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "regenerator-runtime": "^0.13.7"
+  }
+}
