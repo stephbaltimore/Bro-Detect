@@ -1590,13 +1590,12 @@ exports.playerThreeId = playerThreeId;
 },{}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
+require("regenerator-runtime/runtime");
+
 var _keys = require("./keys.js");
 
 //require
 require('dotenv').config();
-
-require("regenerator-runtime/runtime"); //// API keys
-
 
 // start - steamAPI data pull
 async function callSteamApi(brother) {
@@ -1613,13 +1612,13 @@ async function callSteamApi(brother) {
   const json = await rawResponse.json();
 
   if (!rawResponse.ok) {
-    alert('failed to load API', steamUrl); // we want to stop execution if there is an error
+    alert('failed to load steam API'); // we want to stop execution if there is an error
 
     return;
   }
 
   if (rawResponse.ok) {
-    console.log('Success for ', steamUrl);
+    console.log('Success');
   }
 
   console.log("data here->", json);

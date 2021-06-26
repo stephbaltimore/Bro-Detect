@@ -1,7 +1,7 @@
 
 //require
 require('dotenv').config()
-require("regenerator-runtime/runtime");
+import 'regenerator-runtime/runtime'
 
 //// API keys
 import { steamApi } from './keys.js'; 
@@ -31,12 +31,12 @@ const steamParams = {
   const json = await rawResponse.json();
 
   if (!rawResponse.ok) {
-    alert('failed to load API', steamUrl);
+    alert('failed to load steam API');
     // we want to stop execution if there is an error
     return;
   }
   if (rawResponse.ok) {
-    console.log('Success for ', steamUrl);
+    console.log('Success');
   }
   
   console.log("data here->", json)
