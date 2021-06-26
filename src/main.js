@@ -1,7 +1,7 @@
 
 //require and imports
 require('dotenv').config()
-import 'regenerator-runtime/runtime'
+// import 'regenerator-runtime/runtime'
 
 //// API keys
 import { steamApi } from './keys.js'; 
