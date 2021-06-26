@@ -1595,16 +1595,10 @@ require("regenerator-runtime/runtime");
 var _keys = require("./keys.js");
 
 //require and imports
-require('dotenv').config(); // API keys
+require('dotenv').config(); //// API keys
 
 
-// sleep
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-} // sleep
 // start - steamAPI data pull
-
-
 async function callSteamApi(brother) {
   console.log("start calling API");
   const steamUrl = new URL('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/');
@@ -1644,13 +1638,14 @@ async function onlineStatus(id, personastate, personaname, gameextrainfo) {
 
   if (personastate === 1) {
     console.log("".concat(personaname, " is online"));
-    document.getElementById(id).classList.remove("defaultBadge");
+    document.getElementById(id).classList.remove("defaultBadge"); // start - detect if playing a game
 
     if (gameextrainfo === undefined) {
       document.getElementById(id).classList.add("chatBadge");
     } else {
       document.getElementById(id).classList.add("onlineBadge");
-    }
+    } // end - detect if playing a game
+
 
     return;
   }
@@ -1683,7 +1678,13 @@ async function onlineStatus(id, personastate, personaname, gameextrainfo) {
   }
 }
 
-; // start - code runs on page load
+; // sleep
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+} // sleep
+// start - code runs on page load
+
 
 async function onLoadHandler() {
   console.log("the page loaded");
@@ -1736,7 +1737,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62970" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53959" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -4,20 +4,13 @@
 import 'regenerator-runtime/runtime'
 require('dotenv').config()
 
-// API keys
+//// API keys
 import { steamApi } from './keys.js'; 
 
-// steam IDs
+//// steam IDs
 import { playerOneId } from './keys.js';
 import { playerTwoId } from './keys.js';
 import { playerThreeId } from './keys.js';
-
-
-// sleep
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-// sleep
 
 
 // start - steamAPI data pull
@@ -68,14 +61,14 @@ async function onlineStatus(id, personastate, personaname, gameextrainfo) {
     console.log(`${personaname} is online`);
     document.getElementById(id).classList.remove("defaultBadge");
     
-
-    if (gameextrainfo === undefined) {
-      document.getElementById(id).classList.add("chatBadge");
-    }
-    else {
-      document.getElementById(id).classList.add("onlineBadge");
-    }
-
+    // start - detect if playing a game
+        if (gameextrainfo === undefined) {
+          document.getElementById(id).classList.add("chatBadge");
+        }
+        else {
+          document.getElementById(id).classList.add("onlineBadge");
+        }
+    // end - detect if playing a game
     return
   }
   if  (personastate === 2) {
@@ -104,6 +97,11 @@ async function onlineStatus(id, personastate, personaname, gameextrainfo) {
   
 };
 
+// sleep
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+// sleep
 
 
 // start - code runs on page load
