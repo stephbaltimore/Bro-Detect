@@ -1,3 +1,4 @@
 .env
 .env.local
 .DS_Storenode_modules
+npm-debug.log
