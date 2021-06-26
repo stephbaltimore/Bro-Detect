@@ -1590,12 +1590,13 @@ exports.playerThreeId = playerThreeId;
 },{}],"src/main.js":[function(require,module,exports) {
 "use strict";
 
-require("regenerator-runtime/runtime.js");
-
 var _keys = require("./keys.js");
 
-//require and imports
+//require
 require('dotenv').config();
+
+require("regenerator-runtime/runtime"); //// API keys
+
 
 // start - steamAPI data pull
 async function callSteamApi(brother) {
@@ -1712,7 +1713,7 @@ if (document.readyState === 'loading') {
 } else {
   onLoadHandler();
 }
-},{"dotenv":"node_modules/dotenv/lib/main.js","regenerator-runtime/runtime.js":"node_modules/regenerator-runtime/runtime.js","./keys.js":"src/keys.js"}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"dotenv":"node_modules/dotenv/lib/main.js","regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js","./keys.js":"src/keys.js"}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
