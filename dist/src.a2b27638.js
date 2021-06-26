@@ -1676,7 +1676,7 @@ require('dotenv').config();
 // start - steamAPI data pull
 async function callSteamApi(brother) {
   console.log("start calling API");
-  const steamUrl = new URL('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/');
+  const steamUrl = new URL('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/');
   const steamParams = {
     'key': _keys.steamApi,
     'steamids': brother
@@ -1816,7 +1816,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56358" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50029" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
