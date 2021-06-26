@@ -1,7 +1,5 @@
 
 //require and imports
-
-import '/regenerator-runtime/runtime'
 require('dotenv').config()
 
 //// API keys
