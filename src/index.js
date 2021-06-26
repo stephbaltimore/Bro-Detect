@@ -3,6 +3,9 @@
 require('dotenv').config()
 import 'regenerator-runtime/runtime'
 
+//// import a CSS module
+import classes from './main.css';
+
 //// API keys
 import { steamApi } from './keys.js'; 
 

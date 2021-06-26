@@ -1,0 +1,34 @@
+.badge {
+  height: 100px;
+  width: 100px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.defaultBadge {
+  background: #FDFFFC;
+}
+
+.onlineBadge {
+  background: #0CCE6B;
+}
+
+.chatBadge {
+  background: #0197cf;
+}
+
+.awayBadge {
+  background: yellow;
+}
+
+.snoozeBadge {
+  background: rgb(147, 147, 147);
+}
+
+.offlineBadge {
+  background: #FF4E00;
+}
+
+/*# sourceMappingURL=/main.9a83caef.css.map */
