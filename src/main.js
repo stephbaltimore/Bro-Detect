@@ -48,18 +48,23 @@ const steamParams = {
 
 // end - steam API data pull
 
+// start - remove 6 badgestyling classes
 
+function removeBadgeStyle(id){
+  document.getElementById(id).classList.remove("defaultBadge");
+  document.getElementById(id).classList.remove("onlineBadge");
+  document.getElementById(id).classList.remove("chatBadge");
+  document.getElementById(id).classList.remove("awayBadge");
+  document.getElementById(id).classList.remove("snoozeBadge");
+  document.getElementById(id).classList.remove("offlineBadge");
+};
+// end - remove badgestyling classes
+// start - styling function
 async function onlineStatus(id, personastate, personaname, gameextrainfo) {
   
-  if (personastate === 0) {
-    console.log(`${personaname} is offline, last seen at..`);
-    document.getElementById(id).classList.remove("defaultBadge");
-    document.getElementById(id).classList.add("offlineBadge");
-    return
-  } 
-  if (personastate === 1) {
-    console.log(`${personaname} is online`);
-    document.getElementById(id).classList.remove("defaultBadge");
+  if (personastate === 1 || personastate === 5 || personastate === 6) {
+    //online //looking to trade //looking to play
+    removeBadgeStyle(id);
     
     // start - detect if playing a game
         if (gameextrainfo === undefined) {
@@ -72,30 +77,32 @@ async function onlineStatus(id, personastate, personaname, gameextrainfo) {
     return
   }
   if  (personastate === 2) {
-    console.log(`${personaname} is busy`);
+    //busy
+    removeBadgeStyle(id);
     return
   }
   if (personastate === 3) {
+    //away
     console.log(`${personaname} is away`);
+    removeBadgeStyle(id);
+    document.getElementById(id).classList.add("awayBadge");
     return
   }
   if (personastate === 4) {
     console.log(`${personaname} is snoozin`);
-    return
-  }
-  if (personastate === 5) {
-    console.log(`${personaname} is looking to trade`);
-    return
-  }
-  if (personastate === 6) {
-    console.log(`${personaname} is looking to play`);
+    removeBadgeStyle(id);
+    document.getElementById(id).classList.add("snoozeBadge");
     return
   }
   else {
-    console.log("bye");
+    //offline
+    removeBadgeStyle(id);
+    document.getElementById(id).classList.add("offlineBadge");
+
   }
   
 };
+// end - styling function
 
 // sleep
 function sleep(ms) {
@@ -138,8 +145,6 @@ async function onLoadHandler() {
 
 
 // end - code runs on page load
-
-// button listener for user input
 
 
 if (document.readyState === 'loading') {

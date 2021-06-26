@@ -1627,18 +1627,24 @@ async function callSteamApi(brother) {
 }
 
 ; // end - steam API data pull
+// start - remove 6 badgestyling classes
+
+function removeBadgeStyle(id) {
+  document.getElementById(id).classList.remove("defaultBadge");
+  document.getElementById(id).classList.remove("onlineBadge");
+  document.getElementById(id).classList.remove("chatBadge");
+  document.getElementById(id).classList.remove("awayBadge");
+  document.getElementById(id).classList.remove("snoozeBadge");
+  document.getElementById(id).classList.remove("offlineBadge");
+}
+
+; // end - remove badgestyling classes
+// start - styling function
 
 async function onlineStatus(id, personastate, personaname, gameextrainfo) {
-  if (personastate === 0) {
-    console.log("".concat(personaname, " is offline, last seen at.."));
-    document.getElementById(id).classList.remove("defaultBadge");
-    document.getElementById(id).classList.add("offlineBadge");
-    return;
-  }
-
-  if (personastate === 1) {
-    console.log("".concat(personaname, " is online"));
-    document.getElementById(id).classList.remove("defaultBadge"); // start - detect if playing a game
+  if (personastate === 1 || personastate === 5 || personastate === 6) {
+    //online //looking to trade //looking to play
+    removeBadgeStyle(id); // start - detect if playing a game
 
     if (gameextrainfo === undefined) {
       document.getElementById(id).classList.add("chatBadge");
@@ -1651,34 +1657,33 @@ async function onlineStatus(id, personastate, personaname, gameextrainfo) {
   }
 
   if (personastate === 2) {
-    console.log("".concat(personaname, " is busy"));
+    //busy
+    removeBadgeStyle(id);
     return;
   }
 
   if (personastate === 3) {
+    //away
     console.log("".concat(personaname, " is away"));
+    removeBadgeStyle(id);
+    document.getElementById(id).classList.add("awayBadge");
     return;
   }
 
   if (personastate === 4) {
     console.log("".concat(personaname, " is snoozin"));
-    return;
-  }
-
-  if (personastate === 5) {
-    console.log("".concat(personaname, " is looking to trade"));
-    return;
-  }
-
-  if (personastate === 6) {
-    console.log("".concat(personaname, " is looking to play"));
+    removeBadgeStyle(id);
+    document.getElementById(id).classList.add("snoozeBadge");
     return;
   } else {
-    console.log("bye");
+    //offline
+    removeBadgeStyle(id);
+    document.getElementById(id).classList.add("offlineBadge");
   }
 }
 
-; // sleep
+; // end - styling function
+// sleep
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -1702,7 +1707,6 @@ async function onLoadHandler() {
 }
 
 ; // end - code runs on page load
-// button listener for user input
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', onLoadHandler);
@@ -1737,7 +1741,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53959" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54341" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
