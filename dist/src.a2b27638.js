@@ -1702,7 +1702,7 @@ async function callSteamApi(brother) {
 }
 
 ; // end - steam API data pull
-// start - remove 6 badgestyling classes
+// start - remove 7 badgestyling classes
 
 function removeBadgeStyle(id) {
   document.getElementById(id).classList.remove("defaultBadge");
@@ -1711,6 +1711,7 @@ function removeBadgeStyle(id) {
   document.getElementById(id).classList.remove("awayBadge");
   document.getElementById(id).classList.remove("snoozeBadge");
   document.getElementById(id).classList.remove("offlineBadge");
+  document.getElementById(id).classList.remove("busyBadge");
 }
 
 ; // end - remove badgestyling classes
@@ -1734,6 +1735,7 @@ async function onlineStatus(id, personastate, personaname, gameextrainfo) {
   if (personastate === 2) {
     //busy
     removeBadgeStyle(id);
+    document.getElementById(id).classList.add("busyBadge");
     return;
   }
 
@@ -1777,8 +1779,6 @@ async function onLoadHandler() {
   await sleep(10);
   const playerThreeData = await callSteamApi(_keys.playerThreeId);
   onlineStatus(3, playerThreeData.response.players[0].personastate, playerThreeData.response.players[0].personaname, playerThreeData.response.players[0].gameextrainfo);
-  console.log(playerThreeData.response.players[0].gameextrainfo);
-  console.log(playerOneData.response.players[0].gameextrainfo);
 }
 
 ; // end - code runs on page load
@@ -1816,7 +1816,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55610" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62207" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

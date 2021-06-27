@@ -9,26 +9,37 @@
 
 .defaultBadge {
   background: #FDFFFC;
+  border:1px solid #6a6a6a;
 }
 
 .onlineBadge {
   background: #0CCE6B;
+  border: none;
 }
 
 .chatBadge {
   background: #0197cf;
+  border: none;
 }
 
 .awayBadge {
   background: yellow;
+  border: none;
 }
 
 .snoozeBadge {
-  background: rgb(147, 147, 147);
+  background: #6a6a6a;
+  border: none;
+}
+
+.busyBadge {
+  background: #FF4E00;
+  border: none;
 }
 
 .offlineBadge {
-  background: #FF4E00;
+  background: #FDFFFC;
+  border:1px solid #FF4E00;
 }
 
 /*# sourceMappingURL=/src.a2b27638.css.map */

@@ -50,7 +50,7 @@ const steamParams = {
 
 // end - steam API data pull
 
-// start - remove 6 badgestyling classes
+// start - remove 7 badgestyling classes
 
 function removeBadgeStyle(id){
   document.getElementById(id).classList.remove("defaultBadge");
@@ -59,6 +59,7 @@ function removeBadgeStyle(id){
   document.getElementById(id).classList.remove("awayBadge");
   document.getElementById(id).classList.remove("snoozeBadge");
   document.getElementById(id).classList.remove("offlineBadge");
+  document.getElementById(id).classList.remove("busyBadge");
 };
 // end - remove badgestyling classes
 // start - styling function
@@ -81,6 +82,7 @@ async function onlineStatus(id, personastate, personaname, gameextrainfo) {
   if  (personastate === 2) {
     //busy
     removeBadgeStyle(id);
+    document.getElementById(id).classList.add("busyBadge");
     return
   }
   if (personastate === 3) {
@@ -138,9 +140,6 @@ async function onLoadHandler() {
   const playerThreeData = await callSteamApi(playerThreeId);
 
   onlineStatus(3, playerThreeData.response.players[0].personastate, playerThreeData.response.players[0].personaname, playerThreeData.response.players[0].gameextrainfo)
-
-  console.log(playerThreeData.response.players[0].gameextrainfo)
-  console.log(playerOneData.response.players[0].gameextrainfo)
   
   
 };
